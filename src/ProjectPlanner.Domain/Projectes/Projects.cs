@@ -10,13 +10,12 @@ namespace ProjectPlanner.Domain.Projectes
 {
     public sealed class Projects : Entity
     {
-        private Projects(Guid Id, Guid userId, Title title, Description description, DateRange duration, DateTime createdAt, Status status)  : base(Id)
+        private Projects(Guid Id, Guid userId, Title title, Description description, DateRange duration, Status status)  : base(Id)
         {
             UserId = userId;
             Title = title;
             Description = description;
             Duration = duration;
-            CreatedAt = createdAt;
             Status = status;
         }
 
@@ -37,7 +36,6 @@ namespace ProjectPlanner.Domain.Projectes
                 title,
                 description,
                 duration,
-                DateTime.UtcNow,
                 status
             );
         }

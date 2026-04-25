@@ -9,7 +9,7 @@ namespace ProjectPlanner.Domain.Tasks
 {
     public sealed class Tasks :  Entity
     {
-        private Tasks(Guid Id , Guid projectId, string title, string description, Enums.TaskStatus taskStatus, TaskPriority taskPriority, DateTime dueDate, DateTime createdAt, Guid assignedTo) : base(Id)   
+        private Tasks(Guid Id , Guid projectId, string title, string description, Enums.TaskStatus taskStatus, TaskPriority taskPriority, DateTime dueDate, Guid assignedTo) : base(Id)   
         {
             ProjectId = projectId;
             Title = title;
@@ -17,7 +17,6 @@ namespace ProjectPlanner.Domain.Tasks
             TaskStatus = taskStatus;
             TaskPriority = taskPriority;
             DueDate = dueDate;
-            CreatedAt = createdAt;
             AssignedTo = assignedTo;
         }
 
@@ -27,10 +26,16 @@ namespace ProjectPlanner.Domain.Tasks
         public Enums.TaskStatus TaskStatus { get; private set; }
         public TaskPriority TaskPriority { get; private set; }
         public DateTime DueDate { get; private set; }
-        public DateTime CreatedAt { get; private set; }
+        public DateTime CreatedAt { get; protected set; }
         public Guid AssignedTo { get; private set; }
 
-        public static Tasks Create(Guid projectId, string title, string description, Enums.TaskStatus taskStatus, TaskPriority taskPriority, DateTime dueDate, Guid assignedTo)
+        public static Tasks Create(Guid projectId
+                                    , string title
+                                    , string description
+                                    , Enums.TaskStatus taskStatus
+                                    , TaskPriority taskPriority
+                                    , DateTime dueDate
+                                    , Guid assignedTo)
         {
             return new Tasks(
                 Guid.NewGuid(),
@@ -40,7 +45,6 @@ namespace ProjectPlanner.Domain.Tasks
                 taskStatus,
                 taskPriority,
                 dueDate,
-                DateTime.UtcNow,
                 assignedTo
             );
         }

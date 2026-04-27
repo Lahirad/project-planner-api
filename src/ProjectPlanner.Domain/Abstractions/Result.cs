@@ -25,7 +25,7 @@ namespace ProjectPlanner.Domain.Abstractions
             Meta = Meta.Create(apiVersion);
         }
 
-        // ✅ Success factory
+        // ✅ Success factory    
         public static Result<T> Success(T data, string message = "Success", int code = 200)
         {
             return new Result<T>("success", code, message, data, null);

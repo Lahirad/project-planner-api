@@ -34,7 +34,7 @@ namespace ProjectPlanner.Domain.Projectes
         // ❌ Error factory
         public static Result<T> Error(string message = "Error", int code = 500, List<Error> errors = null)
         {
-            return new Result<T>("error", code, message, default, errors);
+            return new Result<T>("error", code, message, default, errors); 
         }
     }
 }

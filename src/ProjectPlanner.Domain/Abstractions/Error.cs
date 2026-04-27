@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectPlanner.Domain.Projectes
+namespace ProjectPlanner.Domain.Abstractions
 {
     public sealed class Error
     {

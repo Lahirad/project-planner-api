@@ -26,7 +26,6 @@ namespace ProjectPlanner.Domain.Users
         {
             return new Users(Guid.NewGuid(), email, name, createdDate);
         }
-
         public void SetIdentityId(string identityId)
         {
             IdentityId = identityId;

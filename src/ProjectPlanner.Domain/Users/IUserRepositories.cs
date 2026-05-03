@@ -10,6 +10,5 @@ namespace ProjectPlanner.Domain.Users
     {
         Task<Users?> AddUserAsync(Users user,CancellationToken cancellationToken);
         Task<Users?> GetUserByIdAsync(Guid id, CancellationToken cancellationToken);
-
     }
 }

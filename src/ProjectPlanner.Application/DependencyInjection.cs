@@ -14,7 +14,9 @@ namespace ProjectPlanner.Application
         {
             services.AddMediatR(configuration =>
             {
-                configuration.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
+                //it will scan the assembly for all MediatR handlers, requests, and notifications and register them with the DI container.
+                configuration.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly); 
+                
             });
 
             return services;

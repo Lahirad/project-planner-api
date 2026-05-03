@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectPlanner.Application.Messging
 {
-    interface ICommand<TResponse> : IRequest<Result<TResponse>>, IBaseCommand
-    {
-    }
-    interface IBaseCommand
+    interface IQueryHandler<TQuery, TResponse> : IRequestHandler<TQuery, Result<TResponse>> where TQuery : IQuery<TResponse>
     {
     }
 }

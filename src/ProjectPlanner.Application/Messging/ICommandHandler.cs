@@ -5,13 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ProjectPlanner.Application.Messging
 {
-    interface ICommand<TResponse> : IRequest<Result<TResponse>>, IBaseCommand
-    {
-    }
-    interface IBaseCommand
+    interface ICommandHandler<TCommand, TResponse> : IRequestHandler<TCommand, Result<TResponse>> where TCommand : ICommand<TResponse>
     {
     }
 }

@@ -15,9 +15,12 @@ namespace ProjectPlanner.Application
             services.AddMediatR(configuration =>
             {
                 //it will scan the assembly for all MediatR handlers, requests, and notifications and register them with the DI container.
-                configuration.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly); 
-                
+                configuration.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
+
             });
+
+            // Ensure FluentValidation is referenced and the correct namespace is used
+            //services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly, includeInternalTypes: true);
 
             return services;
         }

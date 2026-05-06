@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProjectPlanner.Application.Exceptions;
 using ProjectPlanner.Domain.Abstractions;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ProjectPlanner.Infrastructure
 {
-    public sealed class ApplicationDBContext : DbContext , IUnitOfWork
+    public sealed class ApplicationDBContext : DbContext , IUnitofWork
     {
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -18,8 +19,6 @@ namespace ProjectPlanner.Infrastructure
 
             base.OnModelCreating(modelBuilder);
         }
-
-
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             try
@@ -29,7 +28,7 @@ namespace ProjectPlanner.Infrastructure
             }
             catch (DbUpdateConcurrencyException ex)
             {
-                throw new ApplicationException("Concurrency exception occurred.", ex);
+                throw new ConcurrencyException("Concurrency exception occurred.", ex);
             }
         }
     }

@@ -22,8 +22,4 @@
     <ProjectReference Include="..\ProjectPlanner.Application\ProjectPlanner.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Configurations\" />
-  </ItemGroup>
-
 </Project>

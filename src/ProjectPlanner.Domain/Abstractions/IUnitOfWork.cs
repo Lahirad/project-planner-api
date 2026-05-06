@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProjectPlanner.Domain.Abstractions
 {
-    interface IUnitOfWork
+    public interface IUnitofWork
     {
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken); 
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

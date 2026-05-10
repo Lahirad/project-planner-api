@@ -13,7 +13,7 @@ namespace ProjectPlanner.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Users> builder)
         {
-            builder.ToTable("PROJECT_USERS"); // Ensure Microsoft.EntityFrameworkCore is referenced in your project
+            builder.ToTable("PROJECT_USERS"); 
 
             builder.HasKey(x => x.Id);
 

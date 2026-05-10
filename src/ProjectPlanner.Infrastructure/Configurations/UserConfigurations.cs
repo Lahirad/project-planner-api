@@ -19,15 +19,17 @@ namespace ProjectPlanner.Infrastructure.Configurations
 
             builder.Property(x => x.Id).HasColumnName("ID");
 
-            builder.Property(x => x.Email)
-                    .HasConversion(
-                        email => email.Value,
-                        value => new Email(value))
-                    .IsRequired().HasColumnName("EMAIL");
+            builder.Property(x => x.Email).HasConversion(email => email.Value,value => new Email(value)).IsRequired().HasColumnName("EMAIL");
 
-            builder.HasIndex(x => x.Email).IsUnique();
+            //builder.HasIndex(x => x.Email).IsUnique();
 
-            builder.Property(x => x.Name).HasMaxLength(2000).IsRequired().HasColumnName("NAME");
+            //builder.Property(x => x.Name).HasMaxLength(2000).IsRequired().HasColumnName("NAME");
+
+            builder.Property(x => x.Name).HasConversion(
+            name => name.Value,
+            value => new Name(value)).HasMaxLength(2000).IsRequired().HasColumnName("NAME");
+
+
             builder.Property(x => x.CreatedAt).IsRequired().HasColumnName("CREATED_AT");
             builder.Property(x => x.IdentityId).HasMaxLength(200).HasColumnName("IDENTITY_ID").IsRequired(false);
 

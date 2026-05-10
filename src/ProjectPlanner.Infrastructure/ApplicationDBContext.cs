@@ -14,6 +14,10 @@ namespace ProjectPlanner.Infrastructure
 {
     public sealed class ApplicationDBContext : DbContext , IUnitofWork
     {
+        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options): base(options)
+        {
+
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDBContext).Assembly);

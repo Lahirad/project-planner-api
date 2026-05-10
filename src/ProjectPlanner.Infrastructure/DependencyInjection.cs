@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,11 @@ namespace ProjectPlanner.Infrastructure
         {
 
             var connectionString = configuration.GetConnectionString("Database") ?? throw new ArgumentException(nameof(configuration));
+
+            services.AddDbContext<ApplicationDBContext>(options =>
+            {
+                options.UseNpgsql(connectionString);
+            }); 
             return services;
         }   
     }

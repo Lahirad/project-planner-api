@@ -10,6 +10,10 @@ namespace ProjectPlanner.Domain.Projectes
 {
     public sealed class Projects : Entity
     {
+
+        private Projects()
+        {
+        }
         private Projects(Guid Id, Guid userId, Title title, Description description, DateRange duration, Status status)  : base(Id)
         {
             UserId = userId;

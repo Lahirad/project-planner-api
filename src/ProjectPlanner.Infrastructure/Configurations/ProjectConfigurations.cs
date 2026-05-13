@@ -17,31 +17,52 @@ namespace ProjectPlanner.Infrastructure.Configurations
 
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.Id).HasColumnName("ID");
+            builder.Property(x => x.Id)
+                .HasColumnName("ID");
 
-            builder.Property(x => x.UserId).HasColumnName("USER_ID").IsRequired();      
+            builder.Property(x => x.UserId)
+                .HasColumnName("USER_ID")
+                .IsRequired();
 
-            builder.Property(x => x.Title).HasConversion(
-                title => title.Value,
-                value => new Title(value)).HasMaxLength(2000).IsRequired().HasColumnName("TITLE");
+            builder.Property(x => x.Title)
+                .HasConversion(
+                    title => title.Value,
+                    value => new Title(value))
+                .HasMaxLength(2000)
+                .IsRequired()
+                .HasColumnName("TITLE");
 
-            builder.Property(x => x.Description).HasConversion(
-                description => description.Value,
-                value => new Description(value)).HasMaxLength(2000).IsRequired().HasColumnName("DESCRIPTION");
+            builder.Property(x => x.Description)
+                .HasConversion(
+                    description => description.Value,
+                    value => new Description(value))
+                .HasMaxLength(2000)
+                .IsRequired()
+                .HasColumnName("DESCRIPTION");
 
-            builder.Property(x => x.StartDate).HasColumnName("START_DATE").IsRequired();
+            builder.Property(x => x.StartDate)
+                .HasColumnName("START_DATE")
+                .IsRequired();
 
-            builder.Property(x => x.EndDate).HasColumnName("END_DATE").IsRequired();
+            builder.Property(x => x.EndDate)
+                .HasColumnName("END_DATE")
+                .IsRequired();
 
-            builder.Property(x => x.CreatedAt).IsRequired().HasColumnName("CREATED_AT");
+            builder.Property(x => x.CreatedAt)
+                .HasColumnName("CREATED_AT")
+                .IsRequired();
 
             builder.Property(x => x.Status)
-                            .HasConversion<string>()
-                            .HasMaxLength(200)
-                            .IsRequired()
-                            .HasColumnName("STATUS");
+                .HasConversion<string>()
+                .HasMaxLength(200)
+                .IsRequired()
+                .HasColumnName("STATUS");
 
-            builder.Property<uint>("Version").HasColumnName("VERSION").IsRowVersion();  
+            builder.Ignore(x => x.Duration);
+
+            builder.Property<uint>("Version")
+                .HasColumnName("VERSION")
+                .IsRowVersion();
         }
     }
 }

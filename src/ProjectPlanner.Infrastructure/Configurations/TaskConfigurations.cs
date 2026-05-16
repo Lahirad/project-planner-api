@@ -18,6 +18,8 @@ namespace ProjectPlanner.Infrastructure.Configurations
 
             builder.Property(x => x.Id).HasColumnName("ID");
 
+            //
+
 
         }
     }

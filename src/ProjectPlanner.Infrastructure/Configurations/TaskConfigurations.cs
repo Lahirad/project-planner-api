@@ -38,7 +38,7 @@ namespace ProjectPlanner.Infrastructure.Configurations
             builder.HasOne<Domain.Projectes.Projects>()
                .WithMany()
                .HasForeignKey(x => x.ProjectId)  
-               .OnDelete(DeleteBehavior.Cascade);
+               .OnDelete(DeleteBehavior.Cascade); 
 
             builder.HasOne<ProjectPlanner.Domain.Users.Users>()
             .WithMany()
